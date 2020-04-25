@@ -1,0 +1,23 @@
+[
+	{
+		"key": "Name",
+		"en": "Name",
+		"fr": "Nom",
+		"de": "Name",
+		"hi": "नाम"
+	},
+	{
+		"key": "Name must be between {{__MIN__}} and {{__MAX__}} characters",
+		"en": "Name must be between {{__MIN__}} and {{__MAX__}} characters",
+		"fr": "Le nom doit être entre {{__MIN__}} et {{__MAX__}} caractères",
+		"de": "Name muss zwischen {{__MIN__}} und {{__MAX__}} Zeichen",
+		"hi": "नाम {{__MIN__}} और {{__MAX__}} वर्णों के बीच होना चाहिए"
+	},
+	{
+		"key": "Type your name",
+		"en": "Type your name",
+		"fr": "Tapez votre nom",
+		"de": "Gib deinen Namen ein",
+		"hi": "अपना नाम लिखें"
+	}
+]
