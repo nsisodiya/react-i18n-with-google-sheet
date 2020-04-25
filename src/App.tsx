@@ -1,23 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+
+const styles = {
+  InputBox: {
+    padding: 4,
+  },
+  Error: {
+    color: "red",
+  },
+};
 
 function App() {
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const val = e.target.value;
+    if (val.length >= 5 && val.length <= 20) {
+      setError("");
+    } else {
+      setError("Name must be between 5 to 20 characters");
+    }
+    setName(val);
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Name:{" "}
+          <input
+            style={styles.InputBox}
+            value={name}
+            onChange={onChange}
+            placeholder="Type your name"
+          />
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p style={styles.Error}>{error}</p>
       </header>
     </div>
   );
