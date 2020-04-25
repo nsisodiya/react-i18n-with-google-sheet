@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import { useTranslation } from "react-i18next";
+import { LangSwitcher } from "./LangSwitcher";
 
 const styles = {
   InputBox: {
@@ -14,7 +15,7 @@ const styles = {
 function App() {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
@@ -33,6 +34,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <LangSwitcher />
         <p>
           {t("Name")}:{" "}
           <input
