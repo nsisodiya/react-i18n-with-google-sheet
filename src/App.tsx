@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { useTranslation } from "react-i18next";
 
 const styles = {
   InputBox: {
@@ -13,12 +14,19 @@ const styles = {
 function App() {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
+  const { t, i18n } = useTranslation();
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const val = e.target.value;
     if (val.length >= 5 && val.length <= 20) {
       setError("");
     } else {
-      setError("Name must be between 5 to 20 characters");
+      setError(
+        t("Name must be between {{__MIN__}} and {{__MAX__}} characters", {
+          __MIN__: 5,
+          __MAX__: 20,
+        })
+      );
     }
     setName(val);
   };
@@ -26,12 +34,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>
-          Name:{" "}
+          {t("Name")}:{" "}
           <input
             style={styles.InputBox}
             value={name}
             onChange={onChange}
-            placeholder="Type your name"
+            placeholder={t("Type your name")}
           />
         </p>
         <p style={styles.Error}>{error}</p>
